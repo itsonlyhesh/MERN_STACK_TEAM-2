@@ -1,0 +1,26 @@
+[
+  {
+    "_id": "60d5ecb8b394f923c8e41110",
+    "name": "Caramel Popcorn (L)",
+    "description": "Large tub of freshly popped corn glazed with rich caramel.",
+    "price": 180,
+    "imageUrl": "https://images.example.com/caramel_popcorn.jpg",
+    "isAvailable": true
+  },
+  {
+    "_id": "60d5ecb8b394f923c8e41111",
+    "name": "Coca Cola (M)",
+    "description": "500ml ice-cold carbonated soft drink.",
+    "price": 120,
+    "imageUrl": "https://images.example.com/coke.jpg",
+    "isAvailable": true
+  },
+  {
+    "_id": "60d5ecb8b394f923c8e41112",
+    "name": "Cheese Nachos",
+    "description": "Crispy tortilla chips served with warm cheese dip.",
+    "price": 150,
+    "imageUrl": "https://images.example.com/nachos.jpg",
+    "isAvailable": false
+  }
+]

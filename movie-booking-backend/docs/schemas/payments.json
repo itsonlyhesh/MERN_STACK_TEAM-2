@@ -1,0 +1,11 @@
+[
+  {
+    "_id": "60d5ecb8b394f923c8e41114",
+    "bookingId": "60d5ecb8b394f923c8e41113",
+    "amount": 430,
+    "paymentMethod": "UPI",
+    "transactionId": "txn_837264829102",
+    "paymentStatus": "Completed",
+    "paymentDate": "2026-07-29T11:46:00.000Z"
+  }
+]

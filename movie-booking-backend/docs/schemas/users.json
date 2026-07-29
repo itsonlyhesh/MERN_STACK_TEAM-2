@@ -1,0 +1,20 @@
+[
+  {
+    "_id": "60d5ecb8b394f923c8e41101",
+    "name": "Jane Doe",
+    "email": "jane@example.com",
+    "password": "$2b$10$xyzHashedPasswordExampleHere12345",
+    "role": "user",
+    "createdAt": "2026-07-29T11:45:00.000Z",
+    "updatedAt": "2026-07-29T11:45:00.000Z"
+  },
+  {
+    "_id": "60d5ecb8b394f923c8e41102",
+    "name": "Admin User",
+    "email": "admin@inorbitmovies.com",
+    "password": "$2b$10$abcHashedPasswordExampleHere67890",
+    "role": "admin",
+    "createdAt": "2026-07-29T11:40:00.000Z",
+    "updatedAt": "2026-07-29T11:40:00.000Z"
+  }
+]

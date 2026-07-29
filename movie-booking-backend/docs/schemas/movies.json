@@ -1,0 +1,28 @@
+[
+  {
+    "_id": "60d5ecb8b394f923c8e41103",
+    "title": "Inception",
+    "description": "A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a C.E.O.",
+    "genre": ["Sci-Fi", "Action", "Thriller"],
+    "language": "English",
+    "duration": 148,
+    "posterUrl": "https://images.example.com/inception.jpg",
+    "trailerUrl": "https://youtube.com/watch?v=YoHD9XEInc0",
+    "releaseDate": "2010-07-16T00:00:00.000Z",
+    "rating": "UA",
+    "createdAt": "2026-07-29T11:45:00.000Z"
+  },
+  {
+    "_id": "60d5ecb8b394f923c8e41104",
+    "title": "The Dark Knight",
+    "description": "When the menace known as the Joker wreaks havoc and chaos on the people of Gotham, Batman must accept one of the greatest psychological and physical tests of his ability to fight injustice.",
+    "genre": ["Action", "Crime", "Drama"],
+    "language": "English",
+    "duration": 152,
+    "posterUrl": "https://images.example.com/dark_knight.jpg",
+    "trailerUrl": "https://youtube.com/watch?v=EXeTwQWrcwY",
+    "releaseDate": "2008-07-18T00:00:00.000Z",
+    "rating": "A",
+    "createdAt": "2026-07-29T11:45:00.000Z"
+  }
+]

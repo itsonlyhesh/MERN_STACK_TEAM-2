@@ -1,0 +1,18 @@
+[
+  {
+    "_id": "60d5ecb8b394f923c8e41105",
+    "movieId": "60d5ecb8b394f923c8e41103",
+    "screenName": "Screen 1",
+    "dateTime": "2026-07-30T14:30:00.000Z",
+    "basePrice": 250,
+    "createdAt": "2026-07-29T11:45:00.000Z"
+  },
+  {
+    "_id": "60d5ecb8b394f923c8e41106",
+    "movieId": "60d5ecb8b394f923c8e41104",
+    "screenName": "Screen 2",
+    "dateTime": "2026-07-30T18:00:00.000Z",
+    "basePrice": 300,
+    "createdAt": "2026-07-29T11:45:00.000Z"
+  }
+]

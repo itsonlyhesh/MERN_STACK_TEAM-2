@@ -1,0 +1,29 @@
+[
+  {
+    "_id": "60d5ecb8b394f923c8e41107",
+    "showId": "60d5ecb8b394f923c8e41105",
+    "seatNumber": "A1",
+    "category": "Standard",
+    "price": 250,
+    "status": "Available",
+    "bookingId": null
+  },
+  {
+    "_id": "60d5ecb8b394f923c8e41108",
+    "showId": "60d5ecb8b394f923c8e41105",
+    "seatNumber": "A2",
+    "category": "Standard",
+    "price": 250,
+    "status": "Booked",
+    "bookingId": "60d5ecb8b394f923c8e41113"
+  },
+  {
+    "_id": "60d5ecb8b394f923c8e41109",
+    "showId": "60d5ecb8b394f923c8e41105",
+    "seatNumber": "H12",
+    "category": "Premium",
+    "price": 400,
+    "status": "Reserved",
+    "bookingId": null
+  }
+]

@@ -1,0 +1,20 @@
+[
+  {
+    "_id": "60d5ecb8b394f923c8e41113",
+    "userId": "60d5ecb8b394f923c8e41101",
+    "showId": "60d5ecb8b394f923c8e41105",
+    "seats": [
+      "60d5ecb8b394f923c8e41108"
+    ],
+    "snacks": [
+      {
+        "snackId": "60d5ecb8b394f923c8e41110",
+        "quantity": 1
+      }
+    ],
+    "totalAmount": 430,
+    "bookingStatus": "Confirmed",
+    "qrCodeUrl": "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=BOOKING60d5ecb8b394f923c8e41113",
+    "bookingDate": "2026-07-29T11:45:00.000Z"
+  }
+]
