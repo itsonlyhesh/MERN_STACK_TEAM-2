@@ -1,0 +1,29 @@
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  font-family:'Poppins',sans-serif;
+  background:#f8f8f8;
+  color:#333;
+}
+
+a{
+  text-decoration:none;
+}
+
+li{
+  list-style:none;
+}
+
+button{
+  cursor:pointer;
+  font-family:inherit;
+}
+
+img{
+  max-width:100%;
+  display:block;
+}
