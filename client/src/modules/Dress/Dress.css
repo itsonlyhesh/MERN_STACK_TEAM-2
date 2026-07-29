@@ -1,0 +1,352 @@
+.dress-store {
+  --dress-accent: #d63384;
+  --dress-accent-dark: #a61e62;
+  --dress-ink: #26212a;
+  --dress-muted: #6b6470;
+  --dress-surface: #fff;
+  --dress-soft: #fff4f8;
+  color: var(--dress-ink);
+  background: var(--dress-surface);
+  font-family: "Poppins", system-ui, sans-serif;
+}
+
+.dress-store *,
+.dress-store *::before,
+.dress-store *::after {
+  box-sizing: border-box;
+}
+
+.dress-store img {
+  display: block;
+  width: 100%;
+}
+
+.dress-store a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.dress-hero {
+  position: relative;
+  min-height: 560px;
+  overflow: hidden;
+}
+
+.dress-hero-image {
+  position: absolute;
+  inset: 0;
+  height: 100%;
+  object-fit: cover;
+}
+
+.dress-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgb(25 14 25 / 82%), rgb(25 14 25 / 20%));
+}
+
+.dress-hero-content {
+  position: relative;
+  z-index: 1;
+  width: min(1180px, calc(100% - 40px));
+  margin: 0 auto;
+  padding: 120px 0;
+  color: #fff;
+}
+
+.dress-subtitle {
+  margin: 0 0 14px;
+  color: #ffd0e4;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+}
+
+.dress-hero-content h1 {
+  max-width: 720px;
+  margin: 0;
+  font-size: clamp(2.7rem, 7vw, 5.6rem);
+  line-height: 0.98;
+}
+
+.dress-description {
+  max-width: 620px;
+  margin: 24px 0 32px;
+  font-size: 1.08rem;
+  line-height: 1.7;
+}
+
+.dress-primary-action,
+.dress-category-info a,
+.dress-trend-card a,
+.dress-offers a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  background: var(--dress-accent);
+  color: #fff;
+  font-weight: 700;
+  transition: transform 160ms ease, background 160ms ease;
+}
+
+.dress-primary-action {
+  min-height: 48px;
+  padding: 0 26px;
+}
+
+.dress-primary-action:hover,
+.dress-category-info a:hover,
+.dress-trend-card a:hover,
+.dress-offers a:hover {
+  background: var(--dress-accent-dark);
+  transform: translateY(-2px);
+}
+
+.dress-categories,
+.dress-featured,
+.dress-trending,
+.dress-new-arrivals {
+  width: min(1180px, calc(100% - 40px));
+  margin: 0 auto;
+  padding: 76px 0;
+}
+
+.dress-section-title {
+  margin: 0;
+  text-align: center;
+  font-size: clamp(2rem, 4vw, 3rem);
+}
+
+.dress-section-subtitle {
+  margin: 10px 0 36px;
+  color: var(--dress-muted);
+  text-align: center;
+}
+
+.dress-category-grid,
+.dress-product-grid,
+.dress-trending-grid,
+.dress-arrival-grid {
+  display: grid;
+  gap: 24px;
+}
+
+.dress-category-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.dress-product-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.dress-trending-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.dress-arrival-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.dress-category-card,
+.dress-product-card,
+.dress-trend-card,
+.dress-arrival-card {
+  overflow: hidden;
+  border: 1px solid #eadfe5;
+  border-radius: 14px;
+  background: #fff;
+  box-shadow: 0 8px 24px rgb(48 24 39 / 8%);
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+.dress-category-card:hover,
+.dress-product-card:hover,
+.dress-trend-card:hover,
+.dress-arrival-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 14px 34px rgb(48 24 39 / 15%);
+}
+
+.dress-category-image,
+.dress-product-image,
+.dress-trend-image,
+.dress-arrival-image {
+  overflow: hidden;
+}
+
+.dress-category-image { height: 250px; }
+.dress-product-image { height: 310px; }
+.dress-trend-image { height: 290px; }
+.dress-arrival-image { height: 330px; }
+
+.dress-category-image img,
+.dress-product-image img,
+.dress-trend-image img,
+.dress-arrival-image img {
+  height: 100%;
+  object-fit: cover;
+  transition: transform 220ms ease;
+}
+
+.dress-category-card:hover img,
+.dress-product-card:hover img,
+.dress-trend-card:hover img,
+.dress-arrival-card:hover img {
+  transform: scale(1.04);
+}
+
+.dress-category-info,
+.dress-product-content,
+.dress-trend-card,
+.dress-arrival-card {
+  text-align: center;
+}
+
+.dress-category-info,
+.dress-product-content {
+  padding: 20px;
+}
+
+.dress-category-info h3,
+.dress-product-content h3,
+.dress-trend-card h3,
+.dress-arrival-card h3 {
+  margin: 0 0 14px;
+}
+
+.dress-category-info a,
+.dress-trend-card a {
+  min-height: 38px;
+  padding: 0 18px;
+  font-size: 0.9rem;
+}
+
+.dress-featured,
+.dress-new-arrivals {
+  width: auto;
+  max-width: none;
+  padding-right: max(20px, calc((100% - 1180px) / 2));
+  padding-left: max(20px, calc((100% - 1180px) / 2));
+  background: var(--dress-soft);
+}
+
+.dress-rating {
+  display: flex;
+  justify-content: center;
+  gap: 3px;
+  color: #f5a623;
+}
+
+.dress-price {
+  margin: 12px 0;
+  color: var(--dress-accent-dark);
+  font-size: 1.25rem;
+  font-weight: 800;
+}
+
+.dress-product-actions {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+
+.dress-cart-button,
+.dress-wishlist-button {
+  display: inline-flex;
+  min-height: 40px;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  border: 0;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.dress-cart-button {
+  padding: 0 15px;
+  background: var(--dress-accent);
+  color: #fff;
+  font-weight: 700;
+}
+
+.dress-wishlist-button {
+  width: 40px;
+  border: 1px solid #e8b7cd;
+  background: #fff;
+  color: var(--dress-accent);
+}
+
+.dress-cart-button:hover,
+.dress-wishlist-button:hover {
+  filter: brightness(0.92);
+}
+
+.dress-trend-card,
+.dress-arrival-card {
+  padding-bottom: 22px;
+}
+
+.dress-trend-card h3,
+.dress-arrival-card h3 {
+  margin-top: 18px;
+}
+
+.dress-arrival-card p {
+  margin: 0;
+  color: var(--dress-accent-dark);
+  font-weight: 800;
+}
+
+.dress-offers {
+  padding: 76px 20px;
+  background: linear-gradient(135deg, #65113e, #d63384);
+  color: #fff;
+  text-align: center;
+}
+
+.dress-offers h2 {
+  margin: 0 0 10px;
+  font-size: 1.35rem;
+}
+
+.dress-offers h3 {
+  margin: 0;
+  font-size: clamp(2.4rem, 6vw, 4.6rem);
+}
+
+.dress-offers p {
+  margin: 10px 0 24px;
+  font-size: 1.15rem;
+}
+
+.dress-offers a {
+  min-height: 44px;
+  padding: 0 22px;
+  background: #fff;
+  color: var(--dress-accent-dark);
+}
+
+@media (max-width: 980px) {
+  .dress-product-grid,
+  .dress-trending-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 720px) {
+  .dress-hero { min-height: 500px; }
+  .dress-hero-content { padding: 94px 0; }
+  .dress-category-grid,
+  .dress-arrival-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 520px) {
+  .dress-category-grid,
+  .dress-product-grid,
+  .dress-trending-grid,
+  .dress-arrival-grid { grid-template-columns: 1fr; }
+  .dress-category-image,
+  .dress-product-image,
+  .dress-trend-image,
+  .dress-arrival-image { height: 340px; }
+}
