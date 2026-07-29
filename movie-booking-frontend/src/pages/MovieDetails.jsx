@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import { Clock, Calendar, Star, Film, Monitor, Play } from 'lucide-react';
+import { Clock, Calendar, Film, Monitor, Play, SlidersHorizontal } from 'lucide-react';
 import { CartContext } from '../context/CartContext';
 import './Pages.css';
 
