@@ -1,0 +1,79 @@
+.movie-module {
+  --font-heading: "Arial", sans-serif;
+  --font-body: "Arial", sans-serif;
+  --bg-primary: #ffffff;
+  --bg-secondary: #f9fafb;
+  --bg-card: #ffffff;
+  --accent-gold: #e53e3e;
+  --accent-gold-hover: #c53030;
+  --accent-teal: #e53e3e;
+  --text-main: #1f2937;
+  --text-muted: #6b7280;
+  --border-color: #e5e7eb;
+  --color-success: #10b981;
+  --color-danger: #e53e3e;
+  --color-warning: #d97706;
+  --color-info: #2563eb;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
+  --glass: rgba(255, 255, 255, 0.85);
+  min-height: 65vh;
+  background: var(--bg-primary);
+  color: var(--text-main);
+  font-family: var(--font-body);
+}
+
+.movie-module h1,
+.movie-module h2,
+.movie-module h3,
+.movie-module h4,
+.movie-module h5,
+.movie-module h6 {
+  color: #111827;
+  font-family: var(--font-heading);
+}
+
+.movie-module a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.movie-module button {
+  border: 0;
+  cursor: pointer;
+  font-family: var(--font-body);
+}
+
+.movie-module .glass-panel {
+  background: var(--glass);
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow);
+}
+
+.movie-module .btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 28px;
+  border-radius: var(--radius-md);
+  background: linear-gradient(135deg, var(--accent-gold), #ff3b30);
+  color: #fff;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.movie-module .btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 28px;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  background: transparent;
+  color: var(--text-main);
+  font-weight: 600;
+}
