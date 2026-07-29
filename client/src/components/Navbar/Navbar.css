@@ -1,0 +1,36 @@
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 7%;
+  background: #111827;
+}
+
+.logo {
+  color: white;
+  font-size: 26px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.nav-links {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+}
+
+.nav-links a {
+  color: #e5e7eb;
+  text-decoration: none;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: #fbbf24;
+}
+
+.login-link {
+  border: 1px solid #fbbf24;
+  border-radius: 6px;
+  padding: 8px 16px;
+}

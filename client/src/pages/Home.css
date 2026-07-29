@@ -1,0 +1,98 @@
+.hero {
+  min-height: 72vh;
+  display: flex;
+  align-items: center;
+  padding: 60px 8%;
+  color: white;
+  background: linear-gradient(
+      rgba(17, 24, 39, 0.78),
+      rgba(17, 24, 39, 0.78)
+    ),
+    url("https://images.unsplash.com/photo-1567449303078-57ad995bd17a")
+      center/cover;
+}
+
+.hero > div {
+  max-width: 700px;
+}
+
+.welcome-text {
+  color: #fbbf24;
+  font-weight: 700;
+  letter-spacing: 4px;
+}
+
+.hero h1 {
+  margin: 10px 0;
+  font-size: clamp(50px, 8vw, 90px);
+}
+
+.hero-description {
+  margin-bottom: 30px;
+  font-size: 19px;
+  line-height: 1.7;
+}
+
+.browse-button {
+  display: inline-block;
+  padding: 14px 28px;
+  background: #fbbf24;
+  color: #111827;
+  border-radius: 6px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.stores-section {
+  padding: 70px 7%;
+  background: #f8fafc;
+}
+
+.section-heading {
+  margin-bottom: 35px;
+  text-align: center;
+}
+
+.section-heading p {
+  color: #d97706;
+  font-weight: 700;
+  letter-spacing: 3px;
+}
+
+.section-heading h2 {
+  margin: 8px 0;
+  font-size: 40px;
+}
+
+.section-heading span {
+  color: #6b7280;
+}
+
+.store-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 22px;
+}
+
+.store-card {
+  padding: 30px 22px;
+  background: white;
+  color: #111827;
+  border-radius: 12px;
+  text-decoration: none;
+  box-shadow: 0 8px 25px rgba(15, 23, 42, 0.08);
+  transition: 0.3s;
+}
+
+.store-card:hover {
+  transform: translateY(-7px);
+}
+
+.store-card span {
+  font-size: 40px;
+}
+
+.store-card p {
+  color: #d97706;
+  font-weight: 600;
+}
