@@ -10,6 +10,11 @@ export const AuthProvider = ({ children }) => {
   // Set API base URL
   const API_URL = 'http://localhost:5000/api/auth';
 
+  const logout = () => {
+    localStorage.removeItem('userInfo');
+    setUser(null);
+  };
+
   useEffect(() => {
     // Check if user is logged in
     const storedUser = localStorage.getItem('userInfo');
@@ -17,6 +22,24 @@ export const AuthProvider = ({ children }) => {
       setUser(JSON.parse(storedUser));
     }
     setLoading(false);
+
+    // Setup axios interceptor to catch auth failures (e.g. database reseeded, user not found)
+    const interceptor = axios.interceptors.response.use(
+      (response) => response,
+      (error) => {
+        if (error.response && error.response.status === 401) {
+          const errorMsg = error.response.data?.message || '';
+          if (errorMsg.includes('user not found') || errorMsg.includes('Not authorized')) {
+            logout();
+          }
+        }
+        return Promise.reject(error);
+      }
+    );
+
+    return () => {
+      axios.interceptors.response.eject(interceptor);
+    };
   }, []);
 
   const login = async (email, password) => {
@@ -47,10 +70,7 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
-  const logout = () => {
-    localStorage.removeItem('userInfo');
-    setUser(null);
-  };
+
 
   return (
     <AuthContext.Provider value={{ user, loading, login, register, logout }}>
