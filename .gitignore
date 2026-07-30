@@ -2,9 +2,3 @@ node_modules/
 .env
 dist/
 build/
-# Ignore local database temporary and lock files
-/movie-booking-backend/data/mongod.lock
-/movie-booking-backend/data/WiredTiger.lock
-/movie-booking-backend/data/journal/
-/movie-booking-backend/data/diagnostic.data/
-/movie-booking-backend/data/_tmp/
