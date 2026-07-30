@@ -1,16 +1,56 @@
-# React + Vite
+# 📚 Book Haven
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Book Haven is a full-stack online bookstore built using the **MERN Stack (MongoDB, Express.js, React, Node.js)**. It allows users to browse books, search by category, manage carts and wishlists, and place orders through a responsive and user-friendly interface.
 
-Currently, two official plugins are available:
+## ✨ Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- 📖 Browse books by category
+- 🔍 Search books
+- ❤️ Wishlist management
+- 🛒 Shopping cart
+- 👤 User authentication (JWT)
+- 📦 Order management
+- 📱 Responsive design
+- 🗄 MongoDB database integration
 
-## React Compiler
+## 🛠 Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **Frontend:** React, Vite, Axios
+- **Backend:** Node.js, Express.js
+- **Database:** MongoDB, Mongoose
+- **Authentication:** JWT, bcrypt
 
-## Expanding the ESLint configuration
+## 🚀 Getting Started
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### Install dependencies
+
+```bash
+npm install
+cd server
+npm install
+```
+
+### Configure environment variables
+
+Create a `.env` file inside the `server` folder:
+
+```env
+PORT=5000
+MONGO_URI=mongodb://127.0.0.1:27017/books
+JWT_SECRET=your_secret_key
+```
+
+### Run the application
+
+Backend:
+
+```bash
+cd server
+npm run dev
+```
+
+Frontend:
+
+```bash
+npm run dev
+```
