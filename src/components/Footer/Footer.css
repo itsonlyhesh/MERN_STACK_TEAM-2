@@ -1,0 +1,178 @@
+.footer{
+
+    background:var(--primary);
+    color:white;
+    padding-top:70px;
+}
+
+.footer-container{
+
+    display:grid;
+    grid-template-columns:2fr 1fr 1fr 1.5fr;
+    gap:40px;
+    padding-bottom:50px;
+}
+
+.footer-box h2{
+
+    margin-bottom:20px;
+    font-size:2rem;
+}
+
+.footer-box h3{
+
+    margin-bottom:20px;
+}
+
+.footer-box p{
+
+    line-height:1.8;
+    color:#ddd;
+}
+
+.footer-box ul{
+
+    list-style:none;
+}
+
+.footer-box ul li{
+
+    margin-bottom:12px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.footer-box ul li:hover{
+
+    color:var(--accent);
+}
+
+.footer-box a{
+
+    color:white;
+    text-decoration:none;
+}
+
+.footer-box a:hover{
+
+    color:var(--accent);
+}
+
+.social-icons{
+
+    display:flex;
+    gap:15px;
+    margin-top:25px;
+}
+
+.social-icons a{
+
+    width:42px;
+    height:42px;
+    background:rgba(255,255,255,.12);
+    border-radius:50%;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    transition:.3s;
+}
+
+.social-icons a:hover{
+
+    background:var(--coral);
+    transform:translateY(-4px);
+}
+
+.contact-item{
+
+    display:flex;
+    align-items:flex-start;
+    gap:12px;
+    margin-bottom:18px;
+    color:#ddd;
+}
+
+.contact-item svg{
+
+    color:var(--accent);
+    margin-top:3px;
+}
+
+.footer-bottom{
+
+    border-top:1px solid rgba(255,255,255,.15);
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    padding:25px 0;
+    width:min(1200px,90%);
+    margin:auto;
+}
+
+.scroll-top{
+
+    width:45px;
+    height:45px;
+
+    background:var(--coral);
+    color:white;
+
+    border-radius:50%;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    transition:.3s;
+}
+
+.scroll-top:hover{
+
+    transform:translateY(-5px);
+    background:var(--accent);
+    color:var(--primary);
+}
+
+@media(max-width:992px){
+
+.footer-container{
+
+grid-template-columns:repeat(2,1fr);
+
+}
+
+}
+
+@media(max-width:600px){
+
+.footer-container{
+
+grid-template-columns:1fr;
+text-align:center;
+
+}
+
+.contact-item{
+
+justify-content:center;
+
+}
+
+.social-icons{
+
+justify-content:center;
+
+}
+
+.footer-bottom{
+
+flex-direction:column;
+gap:20px;
+
+}
+
+}

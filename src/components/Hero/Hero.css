@@ -1,0 +1,146 @@
+.hero {
+  background: var(--background);
+  padding: 90px 0;
+}
+
+.hero-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 60px;
+}
+
+.hero-content {
+  flex: 1;
+}
+
+.hero-tag {
+  display: inline-block;
+  background: var(--accent);
+  color: var(--primary);
+  padding: 8px 18px;
+  border-radius: 30px;
+  font-size: .9rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.hero-content h1 {
+  font-size: 3.8rem;
+  line-height: 1.2;
+  color: var(--primary);
+  margin-bottom: 25px;
+}
+
+.hero-content h1 span {
+  color: var(--coral);
+}
+
+.hero-content p {
+  color: var(--gray);
+  line-height: 1.8;
+  font-size: 1.1rem;
+  max-width: 520px;
+  margin-bottom: 35px;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 20px;
+}
+
+.primary-btn,
+.secondary-btn {
+  padding: 14px 32px;
+  border-radius: 50px;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: .3s;
+}
+
+.primary-btn {
+  background: var(--primary);
+  color: white;
+}
+
+.primary-btn:hover {
+  transform: translateY(-4px);
+  background: #004b60;
+}
+
+.secondary-btn {
+  background: var(--coral);
+  color: white;
+}
+
+.secondary-btn:hover {
+  transform: translateY(-4px);
+  opacity: .9;
+}
+
+.hero-image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.hero-image img {
+  max-width: 500px;
+  width: 100%;
+}
+
+/* Responsive */
+
+@media (max-width: 992px) {
+
+  .hero-container {
+    flex-direction: column-reverse;
+    text-align: center;
+  }
+
+  .hero-content p {
+    margin: auto;
+    margin-bottom: 30px;
+  }
+
+  .hero-buttons {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .hero-content h1 {
+    font-size: 3rem;
+  }
+
+  .hero-image img {
+    max-width: 380px;
+  }
+}
+
+@media (max-width: 576px) {
+
+  .hero {
+    padding: 70px 0;
+  }
+
+  .hero-content h1 {
+    font-size: 2.3rem;
+  }
+
+  .hero-content p {
+    font-size: 1rem;
+  }
+
+  .primary-btn,
+  .secondary-btn {
+    width: 100%;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+  }
+
+  .hero-image img {
+    max-width: 300px;
+  }
+}

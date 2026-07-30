@@ -1,0 +1,41 @@
+.offer-countdown {
+  background: linear-gradient(135deg, #006078, #0089a8);
+  color: white;
+  padding: 30px;
+  border-radius: 20px;
+  text-align: center;
+  margin-bottom: 40px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+}
+
+.offer-countdown h3 {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+}
+
+.timer {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.time-box {
+  background: white;
+  color: #006078;
+  width: 90px;
+  padding: 15px;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0,0,0,.1);
+}
+
+.time-box span {
+  display: block;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.time-box small {
+  font-size: 0.9rem;
+  color: #666;
+}

@@ -1,0 +1,36 @@
+.product-details{
+    display:flex;
+    gap:50px;
+    padding:80px 0;
+    align-items:center;
+}
+
+.product-details img{
+    width:420px;
+    border-radius:15px;
+}
+
+.details h1{
+    margin-bottom:20px;
+}
+
+.details h2{
+    color:#e76f51;
+    margin-bottom:20px;
+}
+
+.details p{
+    margin-bottom:15px;
+    line-height:1.7;
+}
+
+@media(max-width:768px){
+    .product-details{
+        flex-direction:column;
+        text-align:center;
+    }
+
+    .product-details img{
+        width:100%;
+    }
+}

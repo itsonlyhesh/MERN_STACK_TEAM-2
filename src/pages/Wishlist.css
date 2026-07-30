@@ -1,0 +1,10 @@
+.wishlist-page{
+    padding:90px 0;
+    background:var(--background);
+}
+
+.wishlist-page h2{
+    text-align:center;
+    margin-bottom:40px;
+    color:var(--primary);
+}
