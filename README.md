@@ -200,16 +200,6 @@ npm run preview
 
 ---
 
-## 👨‍💻 Developed By
-
-**Hesh**
-MERN Stack Developer
-
-GitHub:
-https://github.com/itsonlyhesh
-
----
-
 ## 📜 License
 
 This project is developed for educational and learning purposes.
