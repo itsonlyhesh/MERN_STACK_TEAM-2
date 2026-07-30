@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SPORTS | Shop</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="topbar">
+  <div class="topbar-content">
+    <div class="topbar-copy">
+      <p><b>SPORTS</b></p>
+      <p class="subtitle">
+        <b>From cricket bats to running shoes, yoga mats to gym equipment<br>
+        - Every product is handpicked to help you play harder, train smarter,
+        and enjoy every moment of your sport.</b><br><br>
+      </p>
+      <div class="topbar-actions">
+        <button id="cartToggle" class="cart-pill cart-button" type="button">
+          <span>Cart</span>
+          <strong id="cartCount">0</strong>
+        </button>
+
+        <button id="buyNowButton" class="buy-now-ghost" type="button">
+          Buy Now
+        </button>
+      </div>
+    </div>
+
+    <div class="topbar-image">
+      <img src="image.jpg" alt="Sports Equipment">
+    </div>
+  </div>
+
+</header>
+      <nav class="nav" aria-label="Category navigation">
+        <button class="filter active" data-category="All">All</button>
+        <button class="filter" data-category="Football">Football</button>
+        <button class="filter" data-category="Cricket">Cricket</button>
+        <button class="filter" data-category="Badminton">Badminton</button>
+        <button class="filter" data-category="Fitness">Fitness</button>
+      </nav>
+      <main>
+        <section class="status-row">
+          <p id="statusText" class="status" aria-live="polite">Loading products...</p>
+          <button id="retryButton" class="retry-button hidden" type="button">Retry</button>
+        </section>
+        <section id="productGrid" class="product-grid" aria-label="Products"></section>
+        <section id="emptyState" class="empty-state hidden">
+          <h2>No products found</h2>
+          <p>Try another category or add items through the API.</p>
+        </section>
+      </main>
+    </div>
+
+    <div id="cartBackdrop" class="cart-backdrop hidden" aria-hidden="true"></div>
+    <aside id="cartDrawer" class="cart-drawer" aria-label="Shopping cart" aria-hidden="true">
+      <div class="cart-drawer-head">
+        <div>
+          <p class="drawer-kicker">Your Cart</p>
+          <h2>Items added to cart</h2>
+        </div>
+        <button id="cartClose" class="cart-close" type="button" aria-label="Close cart">×</button>
+      </div>
+
+      <div id="cartItems" class="cart-items"></div>
+
+      <div class="cart-summary">
+        <div class="summary-row">
+          <span>Subtotal</span>
+          <strong id="cartSubtotal">₹0</strong>
+        </div>
+        <button id="checkoutButton" class="checkout-button" type="button">Buy Now</button>
+      </div>
+    </aside>
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+    <script src="script.js"></script>
+  </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+

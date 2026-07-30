@@ -1,0 +1,11 @@
+{
+  "name": "sports",
+  "version": "1.0.0",
+  "private": true,
+  "description": "SPORTS full-stack shop workspace",
+  "scripts": {
+    "start": "npm --prefix Backend run start",
+    "dev": "npm --prefix Backend run dev",
+    "seed": "npm --prefix Backend run seed"
+  }
+}

@@ -1,0 +1,30 @@
+[
+  {
+    "name": "Pro Match Football",
+    "category": "Football",
+    "price": 45,
+    "image": "https://images.unsplash.com/photo-1517466787929-bc90951d0974?auto=format&fit=crop&w=900&q=80",
+    "stock": 18
+  },
+  {
+    "name": "Elite Cricket Bat",
+    "category": "Cricket",
+    "price": 89,
+    "image": "https://images.unsplash.com/photo-1624880357913-a853923824a9?auto=format&fit=crop&w=900&q=80",
+    "stock": 12
+  },
+  {
+    "name": "Tournament Shuttle Pack",
+    "category": "Badminton",
+    "price": 24,
+    "image": "https://images.unsplash.com/photo-1547347298-4074fc3086f0?auto=format&fit=crop&w=900&q=80",
+    "stock": 40
+  },
+  {
+    "name": "Adjustable Dumbbell Set",
+    "category": "Fitness",
+    "price": 129,
+    "image": "https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&w=900&q=80",
+    "stock": 9
+  }
+]
