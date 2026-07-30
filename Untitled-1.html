@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Abi's Fried Chicken 🍗 — Order Online</title>
+<style>
+  :root{
+    --bg:#1c1410; --panel:#251a14; --red:#c8102e; --redhover:#a80d26;
+    --gold:#e8b13b; --cream:#f5ead9; --muted:rgba(245,234,217,.55);
+    --border:rgba(232,177,59,.15);
+  }
+  *{box-sizing:border-box;}
+  html,body{height:100%;margin:0;}
+  body{background:var(--bg);color:var(--cream);font-family:Arial,Helvetica,sans-serif;}
+
+  /* ---------- WELCOME SCREEN ---------- */
+  #welcome-screen{
+    min-height:100vh;
+    display:flex;align-items:center;justify-content:center;
+    padding:20px;
+    background:
+      radial-gradient(circle at 20% 15%, rgba(200,16,46,.20), transparent 55%),
+      radial-gradient(circle at 85% 80%, rgba(232,177,59,.15), transparent 55%),
+      var(--bg);
+  }
+  .welcome-card{
+    width:100%;max-width:420px;background:var(--panel);border:1px solid var(--border);
+    border-radius:20px;padding:40px 32px 32px;text-align:center;
+    box-shadow:0 20px 60px rgba(0,0,0,.45);position:relative;overflow:hidden;
+  }
+  .welcome-card::before{
+    content:"";position:absolute;top:-60px;right:-60px;width:180px;height:180px;
+    background:radial-gradient(circle, rgba(200,16,46,.35), transparent 70%);pointer-events:none;
+  }
+  .emoji-badge{font-size:56px;margin-bottom:6px;filter:drop-shadow(0 4px 10px rgba(200,16,46,.4));}
+  #welcome-screen h1{font-family:Georgia,serif;font-size:28px;margin:4px 0 2px;line-height:1.25;}
+  #welcome-screen h1 .brand{color:var(--red);}
+  #welcome-screen h1 .brand2{color:var(--gold);}
+  .tagline{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);
+    margin:0 0 28px;font-weight:700;}
+  .divider{width:44px;height:3px;background:var(--gold);border-radius:999px;margin:0 auto 26px;}
+  .login-row{
+    display:flex;align-items:center;justify-content:center;gap:10px;
+    background:rgba(232,177,59,.08);border:1px solid var(--border);border-radius:12px;
+    padding:12px 14px;margin-bottom:18px;cursor:pointer;user-select:none;transition:background .15s ease;
+  }
+  .login-row:hover{background:rgba(232,177,59,.14);}
+  .login-row input[type="checkbox"]{width:18px;height:18px;accent-color:var(--red);cursor:pointer;flex-shrink:0;}
+  .login-row label{font-size:14px;font-weight:700;cursor:pointer;}
+  .login-row span.hint{display:block;font-size:11px;font-weight:400;color:var(--muted);margin-top:2px;}
+  #login-fields{max-height:0;overflow:hidden;transition:max-height .3s ease;text-align:left;}
+  #login-fields.open{max-height:220px;margin-bottom:8px;}
+  #login-fields input{
+    width:100%;background:rgba(255,255,255,.05);border:1px solid var(--border);color:var(--cream);
+    border-radius:10px;padding:11px 14px;font-size:14px;margin-bottom:10px;outline:none;
+  }
+  #login-fields input::placeholder{color:var(--muted);}
+  #login-fields input:focus{border-color:var(--gold);}
+  #enter-btn{
+    width:100%;background:var(--red);color:#fff;border:none;padding:14px;border-radius:999px;
+    font-weight:800;font-size:15px;cursor:pointer;margin-top:6px;transition:background .15s ease, transform .1s ease;
+  }
+  #enter-btn:hover{background:var(--redhover);}
+  #enter-btn:active{transform:scale(.98);}
+  .guest-note{margin-top:14px;font-size:12px;color:var(--muted);}
+  .guest-note a{color:var(--gold);text-decoration:underline;cursor:pointer;}
+
+  /* ---------- MENU APP ---------- */
+  #app{display:none;}
+  header{position:sticky;top:0;z-index:20;background:rgba(28,20,16,.95);
+    border-bottom:1px solid rgba(200,16,46,.3);backdrop-filter:blur(6px);}
+  .header-inner{max-width:900px;margin:0 auto;padding:16px 20px;display:flex;
+    align-items:center;justify-content:space-between;}
+  .logo{font-size:24px;font-weight:900;font-family:Georgia,serif;}
+  .logo span{color:var(--red);}
+  #cart-btn{position:relative;background:var(--red);border:none;color:#fff;
+    padding:10px 18px;border-radius:999px;font-weight:700;cursor:pointer;font-size:14px;}
+  #cart-btn:hover{background:var(--redhover);}
+  #cart-count{position:absolute;top:-8px;right:-8px;background:var(--gold);color:var(--bg);
+    font-size:11px;font-weight:800;border-radius:999px;width:20px;height:20px;
+    display:flex;align-items:center;justify-content:center;}
+  .tabs{max-width:900px;margin:0 auto;padding:20px 20px 0;display:flex;gap:8px;overflow-x:auto;}
+  .tab{white-space:nowrap;padding:8px 16px;border-radius:999px;font-size:14px;font-weight:700;
+    border:1px solid rgba(232,177,59,.3);background:transparent;color:var(--muted);cursor:pointer;}
+  .tab.active{background:var(--gold);color:var(--bg);border-color:var(--gold);}
+  main{max-width:900px;margin:0 auto;padding:20px;display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px;}
+  .card{background:var(--panel);border:1px solid var(--border);border-radius:12px;padding:16px;
+    display:flex;flex-direction:column;justify-content:space-between;}
+  .card-img{width:100%;height:110px;border-radius:10px;margin-bottom:12px;overflow:hidden;
+    background:linear-gradient(135deg,rgba(232,177,59,.18),rgba(200,16,46,.18));
+    display:flex;align-items:center;justify-content:center;font-size:44px;}
+  .card-img img{width:100%;height:100%;object-fit:cover;display:block;}
+  .thumb{width:44px;height:44px;border-radius:8px;flex-shrink:0;overflow:hidden;
+    background:linear-gradient(135deg,rgba(232,177,59,.18),rgba(200,16,46,.18));
+    display:flex;align-items:center;justify-content:center;font-size:22px;}
+  .thumb img{width:100%;height:100%;object-fit:cover;display:block;}
+  .card-top{display:flex;justify-content:space-between;gap:8px;align-items:flex-start;}
+  .card h3{margin:0;font-size:17px;}
+  .tag{flex-shrink:0;font-size:10px;font-weight:800;text-transform:uppercase;background:rgba(200,16,46,.2);
+    color:#e8664a;padding:4px 8px;border-radius:6px;}
+  .desc{font-size:13px;color:var(--muted);margin:6px 0 0;}
+  .card-bottom{display:flex;justify-content:space-between;align-items:center;margin-top:16px;}
+  .price{font-weight:800;color:var(--gold);}
+  .add-btn{background:var(--cream);color:var(--bg);border:none;padding:7px 14px;
+    border-radius:999px;font-weight:700;font-size:13px;cursor:pointer;}
+  .add-btn:hover{background:var(--gold);}
+  section#orders{max-width:900px;margin:0 auto;padding:0 20px 100px;}
+  section#orders h2{font-size:18px;}
+  .order{background:var(--panel);border:1px solid var(--border);border-radius:12px;padding:16px;margin-bottom:12px;}
+  .order-row{display:flex;justify-content:space-between;align-items:flex-start;}
+  .order-id{font-weight:800;}
+  .order-meta{font-size:12px;color:var(--muted);margin-top:2px;}
+  .order-total{font-weight:800;color:var(--gold);text-align:right;}
+  .status{display:block;font-size:12px;font-weight:700;text-align:right;margin-top:2px;}
+  .status.preparing{color:#4ade80;}
+  .status.cancelled{color:#e8664a;}
+  .cancel-btn{margin-top:10px;background:none;border:none;color:#e8664a;font-weight:700;
+    font-size:13px;cursor:pointer;text-decoration:underline;padding:0;}
+  #overlay{position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:30;display:none;}
+  #drawer{position:fixed;top:0;right:0;bottom:0;width:100%;max-width:380px;background:var(--bg);
+    border-left:1px solid var(--border);z-index:31;display:flex;flex-direction:column;
+    transform:translateX(100%);transition:transform .25s ease;}
+  #drawer.open{transform:translateX(0);}
+  #overlay.open{display:block;}
+  .drawer-header{display:flex;justify-content:space-between;align-items:center;padding:18px 20px;
+    border-bottom:1px solid var(--border);}
+  .drawer-header h2{margin:0;font-size:18px;}
+  #close-cart{background:none;border:none;color:var(--cream);font-size:22px;cursor:pointer;}
+  #cart-items{flex:1;overflow-y:auto;padding:18px 20px;}
+  .empty{color:var(--muted);font-size:14px;}
+  .cart-row{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:16px;}
+  .cart-row .info{display:flex;align-items:center;gap:10px;}
+  .cart-row .name{font-weight:700;font-size:14px;}
+  .cart-row .unit{font-size:12px;color:var(--muted);}
+  .qty-ctrl{display:flex;align-items:center;gap:8px;}
+  .qty-btn{width:26px;height:26px;border-radius:999px;background:var(--panel);
+    border:1px solid rgba(232,177,59,.3);color:var(--cream);cursor:pointer;font-size:14px;}
+  .drawer-footer{padding:18px 20px;border-top:1px solid var(--border);}
+  .total-row{display:flex;justify-content:space-between;font-weight:800;margin-bottom:14px;}
+  #place-order{width:100%;background:var(--red);color:#fff;border:none;padding:13px;
+    border-radius:999px;font-weight:800;font-size:15px;cursor:pointer;}
+  #place-order:disabled{opacity:.3;cursor:not-allowed;}
+  #place-order:hover:not(:disabled){background:var(--redhover);}
+  #toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:var(--cream);
+    color:var(--bg);padding:10px 18px;border-radius:999px;font-weight:700;font-size:14px;
+    z-index:40;display:none;box-shadow:0 4px 12px rgba(0,0,0,.3);}
+</style>
+</head>
+<body>
+
+<!-- ============ WELCOME / ENTRY SCREEN ============ -->
+<div id="welcome-screen">
+  <div class="welcome-card">
+    <div class="emoji-badge">🍗</div>
+    <h1>Welcome to <span class="brand">Abi's</span> <span class="brand2">Fried Chicken</span></h1>
+    <p class="tagline">book your cravings</p>
+    <div class="divider"></div>
+
+    <div class="login-row" onclick="toggleLogin()">
+      <input type="checkbox" id="login-check" onclick="event.stopPropagation(); toggleLogin(true)">
+      <label for="login-check" onclick="event.preventDefault()">
+        Login to order
+        <span class="hint">Sign in to track orders &amp; save your details</span>
+      </label>
+    </div>
+
+    <div id="login-fields">
+      <input type="text" id="login-phone" placeholder="Phone number or email">
+      <input type="password" id="login-pass" placeholder="Password">
+    </div>
+
+    <button id="enter-btn" onclick="enterSite()">Enter Menu →</button>
+    <p class="guest-note">or <a onclick="continueAsGuest()">continue as guest</a></p>
+  </div>
+</div>
+
+<!-- ============ MENU APP ============ -->
+<div id="app">
+  <header>
+    <div class="header-inner">
+      <div class="logo">AFC <span>CHICKEN 🍗</span></div>
+      <button id="cart-btn" onclick="openCart()">
+        🛒 Cart
+        <span id="cart-count" style="display:none;">0</span>
+      </button>
+    </div>
+  </header>
+
+  <div class="tabs" id="tabs"></div>
+  <main id="menu"></main>
+  <section id="orders">
+    <h2 id="orders-title" style="display:none;">Your Orders</h2>
+    <div id="orders-list"></div>
+  </section>
+
+  <div id="overlay" onclick="closeCart()"></div>
+  <div id="drawer">
+    <div class="drawer-header">
+      <h2>Your Cart</h2>
+      <button id="close-cart" onclick="closeCart()">✕</button>
+    </div>
+    <div id="cart-items"></div>
+    <div class="drawer-footer">
+      <div class="total-row"><span>Total</span><span id="cart-total" style="color:var(--gold);">$0.00</span></div>
+      <button id="place-order" onclick="placeOrder()">✔ Place Order</button>
+    </div>
+  </div>
+</div>
+
+<div id="toast"></div>
+
+<script>
+/* ---------- WELCOME SCREEN LOGIC ---------- */
+const checkbox = document.getElementById("login-check");
+const fields = document.getElementById("login-fields");
+const enterBtn = document.getElementById("enter-btn");
+
+function toggleLogin(fromCheckbox){
+  if (!fromCheckbox) checkbox.checked = !checkbox.checked;
+  fields.classList.toggle("open", checkbox.checked);
+  enterBtn.textContent = checkbox.checked ? "Login & Enter →" : "Enter Menu →";
+}
+
+function enterSite(){
+  if (checkbox.checked){
+    const phone = document.getElementById("login-phone").value.trim();
+    const pass = document.getElementById("login-pass").value.trim();
+    if (!phone || !pass){
+      showToast("Please fill in your login details");
+      return;
+    }
+    showToast("Logged in — welcome!");
+  } else {
+    showToast("Welcome!");
+  }
+  setTimeout(goToMenu, 500);
+}
+
+function continueAsGuest(){
+  checkbox.checked = false;
+  fields.classList.remove("open");
+  enterSite();
+}
+
+function goToMenu(){
+  document.getElementById("welcome-screen").style.display = "none";
+  document.getElementById("app").style.display = "block";
+}
+
+/* ---------- MENU APP LOGIC ---------- */
+const MENU = [
+  { id:"b1", name:"Original Recipe Bucket (8pc)", category:"Buckets", price:24.99, tag:"Best Seller", desc:"Eight pieces, our classic 11-herb blend.", img:"image/original-recipe-bucket.jpeg", fallback:"🍗" },
+  { id:"b2", name:"Spicy Zinger Bucket (8pc)", category:"Buckets", price:26.99, tag:"Spicy", desc:"Fiery breaded chicken, eight pieces.", img:"image/spicy-zinger-bucket.jpeg", fallback:"🔥" },
+  { id:"c1", name:"Zinger Burger", category:"Burgers", price:6.49, tag:"Spicy", desc:"Crispy spicy fillet, mayo, lettuce, brioche bun.", img:"image/zinger-burger.jpeg", fallback:"🍔" },
+  { id:"c2", name:"Classic Fillet Burger", category:"Burgers", price:5.99, desc:"Crispy fillet, mayo, lettuce, brioche bun.", img:"image/a-finished-crispy-chicken-burger-on-a-wooden-board.jpg", fallback:"🍔" },
+  { id:"w1", name:"Hot Wings (6pc)", category:"Wings", price:7.49, tag:"Spicy", desc:"Six spicy glazed wings.", img:"image/hot-wings.jpeg", fallback:"🌶️" },
+  { id:"w2", name:"BBQ Wings (6pc)", category:"Wings", price:7.49, desc:"Six smoky BBQ glazed wings.", img:"image/bbq-wings.jpeg", fallback:"🍗" },
+  { id:"s1", name:"Fries (Reg)", category:"Sides", price:2.99, desc:"Golden salted fries.", img:"image/fries.jpeg", fallback:"🍟" },
+  { id:"s2", name:"Coleslaw", category:"Sides", price:2.49, desc:"Creamy house slaw.", img:"image/coleslaw.jpeg", fallback:"🥗" },
+  { id:"s3", name:"Mashed Potato & Gravy", category:"Sides", price:3.49, desc:"Classic comfort side.", img:"image/mashed-potato.jpeg", fallback:"🥔" },
+  { id:"d1", name:"Soft Drink (Reg)", category:"Drinks", price:1.99, desc:"Choice of cola, lemonade, or orange.", img:"image/soft-drink.jpeg", fallback:"🥤" },
+  { id:"d2", name:"Iced Tea", category:"Drinks", price:1.99, desc:"Sweetened iced tea.", img:"image/iced-tea.jpeg", fallback:"🧊" },
+];
+const CATEGORIES = ["Buckets","Burgers","Wings","Sides","Drinks"];
+
+let cart = {};
+let orders = [];
+let activeCategory = "Buckets";
+
+const fmt = n => `₹${n.toFixed(2)}`;
+const byId = id => MENU.find(m => m.id === id);
+const imgTag = item => `<img src="${item.img}" alt="${item.name}" onerror="this.replaceWith(Object.assign(document.createElement('span'),{textContent:'${item.fallback}'}))">`;
+
+function renderTabs(){
+  const tabs = document.getElementById("tabs");
+  tabs.innerHTML = "";
+  CATEGORIES.forEach(cat => {
+    const btn = document.createElement("button");
+    btn.className = "tab" + (cat === activeCategory ? " active" : "");
+    btn.textContent = cat;
+    btn.onclick = () => { activeCategory = cat; renderTabs(); renderMenu(); };
+    tabs.appendChild(btn);
+  });
+}
+
+function renderMenu(){
+  const menu = document.getElementById("menu");
+  menu.innerHTML = "";
+  MENU.filter(m => m.category === activeCategory).forEach(item => {
+    const card = document.createElement("div");
+    card.className = "card";
+    card.innerHTML = `
+      <div class="card-img">${imgTag(item)}</div>
+      <div>
+        <div class="card-top">
+          <h3>${item.name}</h3>
+          ${item.tag ? `<span class="tag">${item.tag}</span>` : ""}
+        </div>
+        <p class="desc">${item.desc}</p>
+      </div>
+      <div class="card-bottom">
+        <span class="price">${fmt(item.price)}</span>
+        <button class="add-btn">+ Add</button>
+      </div>`;
+    card.querySelector(".add-btn").onclick = () => addToCart(item.id);
+    menu.appendChild(card);
+  });
+}
+
+function addToCart(id){
+  cart[id] = (cart[id] || 0) + 1;
+  showToast(`Added ${byId(id).name}`);
+  updateCartCount();
+  renderCart();
+}
+
+function changeQty(id, delta){
+  const qty = (cart[id] || 0) + delta;
+  if (qty <= 0) delete cart[id]; else cart[id] = qty;
+  updateCartCount();
+  renderCart();
+}
+
+function updateCartCount(){
+  const count = Object.values(cart).reduce((a,b) => a+b, 0);
+  const el = document.getElementById("cart-count");
+  el.textContent = count;
+  el.style.display = count > 0 ? "flex" : "none";
+}
+
+function cartTotal(){
+  return Object.entries(cart).reduce((sum,[id,qty]) => sum + byId(id).price*qty, 0);
+}
+
+function renderCart(){
+  const wrap = document.getElementById("cart-items");
+  const entries = Object.entries(cart);
+  wrap.innerHTML = "";
+  if (entries.length === 0){
+    wrap.innerHTML = `<p class="empty">Your cart is empty. Add something tasty.</p>`;
+  } else {
+    entries.forEach(([id, qty]) => {
+      const item = byId(id);
+      const row = document.createElement("div");
+      row.className = "cart-row";
+      row.innerHTML = `
+        <div class="info">
+          <div class="thumb">${imgTag(item)}</div>
+          <div>
+            <div class="name">${item.name}</div>
+            <div class="unit">${fmt(item.price)} each</div>
+          </div>
+        </div>
+        <div class="qty-ctrl">
+          <button class="qty-btn" data-d="-1">−</button>
+          <span>${qty}</span>
+          <button class="qty-btn" data-d="1">+</button>
+        </div>`;
+      row.querySelectorAll(".qty-btn").forEach(btn => {
+        btn.onclick = () => changeQty(id, parseInt(btn.dataset.d));
+      });
+      wrap.appendChild(row);
+    });
+  }
+  document.getElementById("cart-total").textContent = fmt(cartTotal());
+  document.getElementById("place-order").disabled = entries.length === 0;
+}
+
+function openCart(){
+  document.getElementById("drawer").classList.add("open");
+  document.getElementById("overlay").classList.add("open");
+}
+function closeCart(){
+  document.getElementById("drawer").classList.remove("open");
+  document.getElementById("overlay").classList.remove("open");
+}
+
+function placeOrder(){
+  const entries = Object.entries(cart);
+  if (entries.length === 0) return;
+  const order = {
+    id: Math.random().toString(36).slice(2,8).toUpperCase(),
+    items: entries.map(([id,qty]) => ({...byId(id), qty})),
+    total: cartTotal(),
+    status: "Preparing",
+    time: new Date().toLocaleTimeString([], {hour:"2-digit", minute:"2-digit"})
+  };
+  orders.unshift(order);
+  cart = {};
+  updateCartCount();
+  renderCart();
+  closeCart();
+  renderOrders();
+  showToast(`Order #${order.id} placed`);
+}
+
+function cancelOrder(id){
+  const order = orders.find(o => o.id === id);
+  if (order) order.status = "Cancelled";
+  renderOrders();
+  showToast(`Order #${id} cancelled`);
+}
+
+function renderOrders(){
+  const title = document.getElementById("orders-title");
+  const list = document.getElementById("orders-list");
+  title.style.display = orders.length ? "block" : "none";
+  list.innerHTML = "";
+  orders.forEach(o => {
+    const div = document.createElement("div");
+    div.className = "order";
+    div.innerHTML = `
+      <div class="order-row">
+        <div>
+          <div class="order-id">Order #${o.id}</div>
+          <div class="order-meta">${o.time} · ${o.items.length} item(s)</div>
+        </div>
+        <div>
+          <div class="order-total">${fmt(o.total)}</div>
+          <span class="status ${o.status === "Cancelled" ? "cancelled" : "preparing"}">${o.status}</span>
+        </div>
+      </div>
+      <div style="display:flex;gap:6px;margin-top:10px;">
+        ${o.items.map(i => `<div class="thumb" title="${i.name} x${i.qty}">${imgTag(i)}</div>`).join("")}
+      </div>
+      ${o.status === "Preparing" ? `<button class="cancel-btn">Cancel order</button>` : ""}`;
+    const cancelBtn = div.querySelector(".cancel-btn");
+    if (cancelBtn) cancelBtn.onclick = () => cancelOrder(o.id);
+    list.appendChild(div);
+  });
+}
+
+function showToast(msg){
+  const t = document.getElementById("toast");
+  t.textContent = msg;
+  t.style.display = "block";
+  clearTimeout(window._toastTimer);
+  window._toastTimer = setTimeout(() => { t.style.display = "none"; }, 1800);
+}
+
+// init menu (renders in background, hidden until welcome is dismissed)
+renderTabs();
+renderMenu();
+renderCart();
+</script>
+</body>
+</html>
