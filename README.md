@@ -1,16 +1,217 @@
-# React + Vite
+# 🍫 ChocoMart - Premium Chocolate E-Commerce Website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+ChocoMart is a modern and responsive chocolate shopping website built using React.js. The platform provides a smooth online shopping experience for chocolate lovers with product browsing, filtering, wishlist management, cart functionality, and checkout features.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 🚀 Features
 
-## React Compiler
+### 🏠 Home Page
+- Hero Banner Slider
+- Featured Chocolates
+- Best Sellers Section
+- Premium Chocolate Collection
+- Chocolate Gift Boxes
+- Customer Reviews
+- Newsletter Subscription
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### 🛍️ Product Management
+- Product Listing Page
+- Product Details Page
+- Product Search
+- Category Filtering
+- Price Filtering
+- Rating Filtering
+- Sorting Options
 
-## Expanding the ESLint configuration
+### ❤️ Wishlist
+- Add to Wishlist
+- Remove from Wishlist
+- Wishlist Page
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### 🛒 Shopping Cart
+- Add to Cart
+- Remove Products
+- Update Quantity
+- Cart Total Calculation
+- Delivery Charges
+- Order Summary
+
+### 💳 Checkout
+- Shipping Information
+- Payment Methods
+- Order Confirmation
+
+### 👤 User Features
+- User Registration
+- User Login
+- Profile Management
+- Order History
+
+### 🌙 Additional Features
+- Responsive Design
+- Dark Mode
+- Toast Notifications
+- Loading States
+- Local Storage Persistence
+
+---
+
+## 🛠️ Tech Stack
+
+### Frontend
+- React.js
+- Vite
+- React Router DOM
+- Tailwind CSS
+- React Icons
+- Axios
+
+### State Management
+- React Context API
+
+### Storage
+- Local Storage
+
+---
+
+## 📂 Project Structure
+
+```text
+src/
+│
+├── assets/
+├── components/
+│   ├── Navbar
+│   ├── Footer
+│   ├── ProductCard
+│   ├── HeroBanner
+│   └── SearchBar
+│
+├── pages/
+│   ├── Home
+│   ├── Products
+│   ├── ProductDetails
+│   ├── Cart
+│   ├── Wishlist
+│   ├── Checkout
+│   ├── Login
+│   └── Register
+│
+├── context/
+│   ├── CartContext
+│   └── WishlistContext
+│
+├── data/
+│   └── products.js
+│
+├── routes/
+│
+├── App.jsx
+└── main.jsx
+```
+
+---
+
+## 🍫 Categories
+
+- Milk Chocolate
+- Dark Chocolate
+- White Chocolate
+- Nut Chocolates
+- Truffles
+- Gift Boxes
+- Sugar Free
+- Imported Chocolates
+
+---
+
+## 📸 Sample Brands
+
+- Cadbury
+- Ferrero Rocher
+- Lindt
+- Toblerone
+- Hershey's
+- KitKat
+- Amul
+- Nestlé
+
+---
+
+## ⚙️ Installation
+
+### Clone Repository
+
+```bash
+git clone https://github.com/itsonlyhesh/MERN_STACK_TEAM-2.git
+```
+
+### Navigate to Project
+
+```bash
+cd Chocolates
+```
+
+### Install Dependencies
+
+```bash
+npm install
+```
+
+### Start Development Server
+
+```bash
+npm run dev
+```
+
+Application will run at:
+
+```text
+http://localhost:5173
+```
+
+---
+
+## 📦 Build for Production
+
+```bash
+npm run build
+```
+
+Preview Production Build:
+
+```bash
+npm run preview
+```
+
+---
+
+## 🎯 Future Enhancements
+
+- Backend Integration
+- User Authentication (JWT)
+- Payment Gateway Integration
+- Order Tracking
+- Admin Dashboard
+- Product Reviews & Ratings
+- Coupon System
+- Inventory Management
+
+---
+
+## 👨‍💻 Developed By
+
+**Hesh**
+MERN Stack Developer
+
+GitHub:
+https://github.com/itsonlyhesh
+
+---
+
+## 📜 License
+
+This project is developed for educational and learning purposes.
+
+© 2026 ChocoMart. All Rights Reserved.
