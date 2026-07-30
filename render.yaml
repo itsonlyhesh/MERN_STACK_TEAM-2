@@ -1,0 +1,16 @@
+services:
+  # Movie Booking Backend Express Service
+  - type: web
+    name: movie-booking-backend
+    env: node
+    plan: free
+    rootDir: movie-booking-backend
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: PORT
+        value: 5000
+      - key: MONGO_URI
+        sync: false  # You will enter your MongoDB Atlas URI in the Render Dashboard
+      - key: JWT_SECRET
+        sync: false  # You will enter your JWT Secret in the Render Dashboard
