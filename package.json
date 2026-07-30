@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "concurrently \"npm run dev --prefix movie-booking-backend\" \"npm run dev --prefix movie-booking-frontend\"",
+    "db": "mongod --port 27018 --dbpath ./movie-booking-backend/data",
+    "dev": "concurrently \"npm run db\" \"npm run dev --prefix movie-booking-backend\" \"npm run dev --prefix movie-booking-frontend\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
