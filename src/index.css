@@ -1,0 +1,19 @@
+.navbar ul {
+  display: flex;
+  list-style: none;
+  gap: 25px;
+}
+
+.navbar a {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+}
+
+.navbar a.active {
+  color: gold;
+}
+
+.navbar a:hover {
+  color: orange;
+}
