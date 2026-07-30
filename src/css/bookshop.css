@@ -1,0 +1,21 @@
+.bookshop-page {
+  padding: 2rem;
+  font-family: Arial, sans-serif;
+}
+
+.books-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+}
+
+.book-card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 1rem;
+  background: #fff;
+}
+
+.app-header {
+  margin-bottom: 1.5rem;
+}

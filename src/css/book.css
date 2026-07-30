@@ -1,0 +1,231 @@
+/* Books Grid */
+.books-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1.75rem;
+  margin-top: 2rem;
+}
+
+/* Book Card */
+.book-card {
+  background-color: var(--surface-color);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition-normal);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.book-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-hover);
+  border-color: rgba(79, 70, 229, 0.3);
+}
+
+.book-cover-wrap {
+  position: relative;
+  width: 100%;
+  height: 280px;
+  background-color: #F1F5F9;
+  overflow: hidden;
+}
+
+.book-cover {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: var(--transition-normal);
+}
+
+.book-card:hover .book-cover {
+  transform: scale(1.05);
+}
+
+.book-badge-container {
+  position: absolute;
+  top: 0.75rem;
+  left: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.wishlist-btn-corner {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  background: rgba(255, 255, 255, 0.9);
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  color: #64748B;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  transition: var(--transition-fast);
+}
+
+.wishlist-btn-corner:hover, .wishlist-btn-corner.active {
+  color: #EF4444;
+  background: #FFFFFF;
+  transform: scale(1.1);
+}
+
+.book-info {
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.book-category-tag {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--primary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 0.35rem;
+}
+
+.book-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.35;
+  margin-bottom: 0.35rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  height: 2.7em;
+}
+
+.book-author {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  margin-bottom: 0.75rem;
+}
+
+.book-rating {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.85rem;
+  color: #F59E0B;
+  margin-bottom: 1rem;
+}
+
+.book-rating-count {
+  color: var(--text-light);
+  font-size: 0.75rem;
+}
+
+.book-footer {
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 0.75rem;
+  border-top: 1px solid #F1F5F9;
+}
+
+.book-price-box {
+  display: flex;
+  align-items: baseline;
+  gap: 0.4rem;
+}
+
+.book-price {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--text-primary);
+}
+
+.book-original-price {
+  font-size: 0.85rem;
+  color: var(--text-light);
+  text-decoration: line-through;
+}
+
+/* Book Details Page */
+.book-details-wrapper {
+  background: var(--surface-color);
+  border-radius: var(--radius-lg);
+  padding: 2.5rem;
+  box-shadow: var(--shadow-md);
+  display: grid;
+  grid-template-columns: 380px 1fr;
+  gap: 3rem;
+  border: 1px solid var(--border-color);
+}
+
+.details-cover-box {
+  width: 100%;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  background-color: #F1F5F9;
+}
+
+.details-cover-box img {
+  width: 100%;
+  height: 480px;
+  object-fit: cover;
+}
+
+.details-info h1 {
+  font-size: 2.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.details-author {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  margin-bottom: 1rem;
+}
+
+.details-meta-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  background: #F8FAFC;
+  padding: 1.25rem;
+  border-radius: var(--radius-md);
+  margin: 1.5rem 0;
+}
+
+.meta-item {
+  font-size: 0.9rem;
+}
+
+.meta-item strong {
+  color: var(--text-primary);
+}
+
+.details-price-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.details-actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 900px) {
+  .book-details-wrapper {
+    grid-template-columns: 1fr;
+    padding: 1.5rem;
+  }
+  .details-cover-box img {
+    height: 360px;
+  }
+}
