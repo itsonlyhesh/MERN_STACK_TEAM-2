@@ -75,44 +75,6 @@ ChocoMart is a modern and responsive chocolate shopping website built using Reac
 
 ---
 
-## 📂 Project Structure
-
-```text
-src/
-│
-├── assets/
-├── components/
-│   ├── Navbar
-│   ├── Footer
-│   ├── ProductCard
-│   ├── HeroBanner
-│   └── SearchBar
-│
-├── pages/
-│   ├── Home
-│   ├── Products
-│   ├── ProductDetails
-│   ├── Cart
-│   ├── Wishlist
-│   ├── Checkout
-│   ├── Login
-│   └── Register
-│
-├── context/
-│   ├── CartContext
-│   └── WishlistContext
-│
-├── data/
-│   └── products.js
-│
-├── routes/
-│
-├── App.jsx
-└── main.jsx
-```
-
----
-
 ## 🍫 Categories
 
 - Milk Chocolate
@@ -185,23 +147,4 @@ Preview Production Build:
 npm run preview
 ```
 
----
 
-## 🎯 Future Enhancements
-
-- Backend Integration
-- User Authentication (JWT)
-- Payment Gateway Integration
-- Order Tracking
-- Admin Dashboard
-- Product Reviews & Ratings
-- Coupon System
-- Inventory Management
-
----
-
-## 📜 License
-
-This project is developed for educational and learning purposes.
-
-© 2026 ChocoMart. All Rights Reserved.
