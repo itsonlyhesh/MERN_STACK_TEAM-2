@@ -32,6 +32,14 @@ const offerSchema = new mongoose.Schema(
 
             type: String
 
+        },
+
+        description: {
+
+            type: String,
+
+            default: "Limited time fashion offer."
+
         }
 
     },

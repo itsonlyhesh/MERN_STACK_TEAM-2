@@ -66,6 +66,62 @@ const productSchema = new mongoose.Schema(
 
             default: false
 
+        },
+
+        description: {
+
+            type: String,
+
+            default: "A comfortable, stylish addition to your wardrobe."
+
+        },
+
+        brand: {
+
+            type: String,
+
+            default: "Fashion Hub"
+
+        },
+
+        availableSizes: {
+
+            type: [String],
+
+            default: []
+
+        },
+
+        availableColors: {
+
+            type: [String],
+
+            default: []
+
+        },
+
+        stock: {
+
+            type: Number,
+
+            default: 0
+
+        },
+
+        discount: {
+
+            type: Number,
+
+            default: 0
+
+        },
+
+        originalPrice: {
+
+            type: Number,
+
+            default: 0
+
         }
 
     },
