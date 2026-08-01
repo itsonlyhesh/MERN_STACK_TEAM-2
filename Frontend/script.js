@@ -148,10 +148,16 @@ const buyNow = () => {
   }
 
   const total = moneyFormatter.format(getCartSubtotal());
-  showToast(`Order placed for ${total}`);
+  const itemCount = getCartCount();
   cart = [];
   renderCart();
   closeCart();
+  window.showCompletionModal({
+    eyebrow: 'Payment complete', title: 'Your order is confirmed',
+    message: 'Thanks for shopping with SPORTS. We will prepare your items shortly.',
+    details: [{ label: 'Items', value: `${itemCount} item${itemCount === 1 ? '' : 's'}` }, { label: 'Total', value: total }],
+    actionLabel: 'Continue shopping'
+  });
 };
 
 const renderProducts = () => {
@@ -230,14 +236,14 @@ filterButtons.forEach((button) => {
   });
 });
 
-cartToggle.addEventListener('click', () => {
+cartToggle?.addEventListener('click', () => {
   openCart();
 });
 
 cartClose.addEventListener('click', closeCart);
 cartBackdrop.addEventListener('click', closeCart);
-checkoutButton.addEventListener('click', buyNow);
-buyNowButton.addEventListener('click', buyNow);
+checkoutButton?.addEventListener('click', buyNow);
+buyNowButton?.addEventListener('click', buyNow);
 
 retryButton.addEventListener('click', loadItems);
 loadItems();

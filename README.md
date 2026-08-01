@@ -22,3 +22,7 @@ If you prefer, you can also run the commands directly inside `Backend`:
 - POST /items
 - PUT /items/:id
 - DELETE /items/:id
+- GET /venues
+- GET /venues/:id
+- GET /venues/:venueId/availability?date=YYYY-MM-DD
+- POST /bookings

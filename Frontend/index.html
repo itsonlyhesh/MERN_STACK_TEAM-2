@@ -13,6 +13,14 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
+    <nav class="global-nav" aria-label="Main navigation">
+      <a class="global-nav__brand" href="/">SPORTS</a>
+      <div class="global-nav__links">
+        <a class="active" href="/">Shop products</a>
+        <a href="/bookings">Book a slot</a>
+        <a href="/bookings#my-bookings">My bookings</a>
+      </div>
+    </nav>
     <div class="page-shell">
       <header class="topbar">
   <div class="topbar-content">
@@ -23,16 +31,6 @@
         - Every product is handpicked to help you play harder, train smarter,
         and enjoy every moment of your sport.</b><br><br>
       </p>
-      <div class="topbar-actions">
-        <button id="cartToggle" class="cart-pill cart-button" type="button">
-          <span>Cart</span>
-          <strong id="cartCount">0</strong>
-        </button>
-
-        <button id="buyNowButton" class="buy-now-ghost" type="button">
-          Buy Now
-        </button>
-      </div>
     </div>
 
     <div class="topbar-image">
@@ -82,6 +80,7 @@
       </div>
     </aside>
     <div id="toast" class="toast" role="status" aria-live="polite"></div>
+    <script src="completion-modal.js"></script>
     <script src="script.js"></script>
   </body>
 </html>

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SPORTS | Book a VR/AR Slot</title>
+  <meta name="description"
+    content="Book your VR and AR gaming slots at top sports arenas across India. Choose your venue, pick a time slot, and dive in." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="booking.css" />
+</head>
+
+<body class="booking-page">
+
+  <!-- ── TOP NAV BAR ─────────────────────────────────────────── -->
+    <nav class="global-nav booking-global-nav" aria-label="Main navigation">
+      <a class="global-nav__brand" href="/">SPORTS</a>
+      <div class="global-nav__links">
+        <a href="/">Shop products</a>
+        <a class="active" href="/bookings">Book a slot</a>
+        <a href="#my-bookings">My bookings</a>
+      </div>
+    </nav>
+
+  <!-- ── HERO ────────────────────────────────────────────────── -->
+  <section class="bk-hero">
+    <div class="bk-hero-inner">
+      <span class="bk-hero-badge">VR &amp; AR Gaming</span>
+      <h1 class="bk-hero-title">Book Your Reality</h1>
+      <p class="bk-hero-sub">
+        Step into the future of sports. Explore our curated VR &amp; AR gaming
+        spots across India — pick your arena, choose a slot, and play like
+        never before.
+      </p>
+    </div>
+    <div class="bk-hero-orbs" aria-hidden="true">
+      <div class="orb orb-1"></div>
+      <div class="orb orb-2"></div>
+      <div class="orb orb-3"></div>
+    </div>
+  </section>
+
+  <!-- ── MAIN CONTENT ─────────────────────────────────────────── -->
+    <main class="bk-main">
+      <section id="my-bookings" class="bk-empty-state" aria-label="My bookings">
+        <h2>My bookings</h2>
+        <div id="myBookingsList">No bookings saved on this device yet.</div>
+      </section>
+
+    <!-- Status / loading -->
+    <div id="bkStatus" class="bk-status" aria-live="polite">
+      <div class="bk-spinner"></div>
+      <span>Loading gaming venues…</span>
+    </div>
+
+    <!-- Venue grid -->
+    <section id="venueGrid" class="bk-venue-grid hidden" aria-label="VR/AR Gaming Venues"></section>
+
+    <!-- ── SLOT DETAIL PANEL ──────────────────────────────────── -->
+    <div id="slotPanelBackdrop" class="sp-backdrop hidden" aria-hidden="true"></div>
+    <aside id="slotPanel" class="sp-panel" aria-hidden="true" aria-label="Booking panel">
+
+      <div class="sp-head">
+        <div>
+          <p class="sp-kicker" id="spType">VR</p>
+          <h2 id="spName">Venue Name</h2>
+        </div>
+        <button id="spClose" class="sp-close" type="button" aria-label="Close panel">×</button>
+      </div>
+
+      <div class="sp-amenities" id="spAmenities"></div>
+
+      <!-- Step 1: Pick a slot -->
+      <div class="sp-section" id="stepSlots">
+        <h3 class="sp-section-title">Choose a Time Slot</h3>
+        <div class="sp-field">
+          <label for="bkDate">Booking Date <span class="req">*</span></label>
+          <input type="date" id="bkDate" name="bkDate" required />
+        </div>
+        <div class="sp-slot-grid" id="spSlotGrid"></div>
+      </div>
+
+      <!-- Step 2: Fill booking form -->
+      <form id="bookingForm" class="sp-form hidden" novalidate>
+        <h3 class="sp-section-title">Your Details</h3>
+
+        <div class="sp-selected-slot" id="spSelectedSlot">
+          <!-- filled by JS -->
+        </div>
+
+        <div class="sp-field-row">
+          <div class="sp-field">
+            <label for="bkPeople">No. of People <span class="req">*</span></label>
+            <input type="number" id="bkPeople" name="bkPeople" min="1" max="20" value="1" required />
+          </div>
+        </div>
+
+        <div class="sp-field">
+          <label for="bkName">Full Name <span class="req">*</span></label>
+          <input type="text" id="bkName" name="bkName" placeholder="e.g. Arjun Sharma" required />
+        </div>
+
+        <div class="sp-field-row">
+          <div class="sp-field">
+            <label for="bkEmail">Email <span class="req">*</span></label>
+            <input type="email" id="bkEmail" name="bkEmail" placeholder="you@example.com" required />
+          </div>
+          <div class="sp-field">
+            <label for="bkPhone">Phone <span class="req">*</span></label>
+            <input type="tel" id="bkPhone" name="bkPhone" placeholder="+91 98765 43210" required />
+          </div>
+        </div>
+
+        <div class="sp-price-preview" id="spPricePreview">
+          Total: <strong id="spTotalPrice">₹0</strong>
+        </div>
+
+        <div class="sp-form-actions">
+          <button type="button" id="bkBackBtn" class="sp-btn-back">← Change Slot</button>
+          <button type="submit" id="bkSubmitBtn" class="sp-btn-confirm">Confirm Booking</button>
+        </div>
+      </form>
+
+      <!-- Step 3: Confirmation -->
+      <div id="bookingConfirmation" class="sp-confirmation hidden">
+        <div class="sp-confirm-icon">✓</div>
+        <h3>Booking Confirmed!</h3>
+        <div class="sp-confirm-details" id="spConfirmDetails"></div>
+        <button type="button" id="bkNewBooking" class="sp-btn-confirm" style="margin-top:16px;">Book Another
+          Slot</button>
+      </div>
+
+    </aside>
+
+  </main>
+
+  <!-- Toast -->
+  <div id="bkToast" class="toast" role="status" aria-live="polite"></div>
+
+  <script src="completion-modal.js"></script>
+  <script src="booking.js"></script>
+</body>
+
+</html>
