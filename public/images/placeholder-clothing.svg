@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="1200" viewBox="0 0 900 1200">
+  <rect width="900" height="1200" fill="#f4efe8"/>
+  <rect x="60" y="60" width="780" height="1080" rx="40" fill="#ffffff" stroke="#d8c9b4" stroke-width="6"/>
+  <path d="M300 280h300l90 220v420h-120V560H330v360H210V500l90-220Z" fill="#8b0000"/>
+  <circle cx="450" cy="260" r="110" fill="#d4af37"/>
+  <text x="450" y="910" text-anchor="middle" font-family="Poppins, Arial, sans-serif" font-size="54" font-weight="700" fill="#8b0000">Image unavailable</text>
+  <text x="450" y="980" text-anchor="middle" font-family="Poppins, Arial, sans-serif" font-size="28" fill="#6f6a64">Please try another product image</text>
+</svg>

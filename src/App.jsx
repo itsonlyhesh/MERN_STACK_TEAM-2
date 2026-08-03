@@ -1,8 +1,8 @@
-import Costumes from "./pages/Costumes";
+import CostumesStore from "./pages/CostumesStore";
 import "./App.css";
 
 function App() {
-  return <Costumes />;
+  return <CostumesStore />;
 }
 
 export default App;
