@@ -27,6 +27,7 @@ const spConfirmDetails  = document.getElementById('spConfirmDetails');
 const bkNewBooking      = document.getElementById('bkNewBooking');
 const bkToast           = document.getElementById('bkToast');
 const myBookingsList    = document.getElementById('myBookingsList');
+const bkClearBookings   = document.getElementById('bkClearBookings');
 
 // ─────────────────────────────────────────────────────────────────────────────
 // State
@@ -42,17 +43,47 @@ const INR = new Intl.NumberFormat('en-IN', {
   maximumFractionDigits: 0
 });
 
+const readSavedBookings = () => {
+  try {
+    const stored = JSON.parse(localStorage.getItem('sportsBookings') || '[]');
+    return Array.isArray(stored) ? stored : [];
+  } catch (error) {
+    console.warn('Could not read saved bookings', error);
+    return [];
+  }
+};
+
 const renderMyBookings = () => {
   if (!myBookingsList) return;
-  const bookings = JSON.parse(localStorage.getItem('sportsBookings') || '[]');
+  const bookings = readSavedBookings();
   myBookingsList.replaceChildren();
+
   if (!bookings.length) {
+    myBookingsList.className = 'bk-bookings-empty';
     myBookingsList.textContent = 'No bookings saved on this device yet.';
     return;
   }
+
+  myBookingsList.className = 'bk-bookings-grid';
   bookings.forEach((booking) => {
-    const item = document.createElement('p');
-    item.textContent = `${booking.venueName} — ${booking.slotDate}, ${booking.slotStartTime}–${booking.slotEndTime} (${booking.numberOfPeople} guest${booking.numberOfPeople === 1 ? '' : 's'})`;
+    const item = document.createElement('article');
+    item.className = 'bk-booking-card';
+
+    item.innerHTML = `
+      <div class="bk-booking-card__top">
+        <strong>${booking.venueName}</strong>
+        <span>${booking.slotDate}</span>
+      </div>
+      <div class="bk-booking-card__meta">
+        <span>${booking.slotLabel}</span>
+        <span>${booking.slotStartTime} - ${booking.slotEndTime}</span>
+      </div>
+      <div class="bk-booking-card__footer">
+        <span>${booking.numberOfPeople} guest${booking.numberOfPeople === 1 ? '' : 's'}</span>
+        <strong>${INR.format(booking.totalPrice || 0)}</strong>
+      </div>
+    `;
+
     myBookingsList.appendChild(item);
   });
 };
@@ -326,8 +357,13 @@ const submitBooking = async (e) => {
 
 const showConfirmation = (booking) => {
   const total = INR.format(booking.totalPrice);
-  const savedBookings = JSON.parse(localStorage.getItem('sportsBookings') || '[]');
-  localStorage.setItem('sportsBookings', JSON.stringify([booking, ...savedBookings].slice(0, 20)));
+  const savedBookings = readSavedBookings();
+  const nextBooking = {
+    ...booking,
+    bookingId: booking._id || `${booking.venueName}-${booking.slotDate}-${booking.slotStartTime}`,
+    bookedAt: booking.createdAt || new Date().toISOString()
+  };
+  localStorage.setItem('sportsBookings', JSON.stringify([nextBooking, ...savedBookings].slice(0, 20)));
   renderMyBookings();
 
   spConfirmDetails.innerHTML = `
@@ -399,6 +435,11 @@ bkDate.addEventListener('change', () => {
   activeSlot = null;
   showStep('slots');
   refreshSlotAvailability();
+});
+bkClearBookings?.addEventListener('click', () => {
+  localStorage.removeItem('sportsBookings');
+  renderMyBookings();
+  showToast('Saved bookings cleared');
 });
 bookingForm.addEventListener('submit', submitBooking);
 bkNewBooking.addEventListener('click', () => {

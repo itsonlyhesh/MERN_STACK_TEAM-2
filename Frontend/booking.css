@@ -569,6 +569,109 @@
   text-align: center;
 }
 
+.bk-bookings-section {
+  margin-bottom: 28px;
+  padding: 24px;
+  border-radius: 24px;
+  border: 1px solid var(--dark-border);
+  background: rgba(15, 22, 36, 0.72);
+  backdrop-filter: blur(18px);
+}
+
+.bk-section-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 18px;
+}
+
+.bk-section-eyebrow {
+  margin: 0 0 6px;
+  color: #67e8f9;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.bk-section-head h2 {
+  margin: 0;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(1.4rem, 2.4vw, 2rem);
+  color: #f8fafc;
+}
+
+.bk-bookings-empty {
+  margin: 0;
+  padding: 28px;
+  border: 1px dashed var(--dark-border);
+  border-radius: 16px;
+  color: var(--dark-muted);
+  text-align: center;
+}
+
+.bk-bookings-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+@media (max-width: 1024px) {
+  .bk-bookings-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 640px) {
+  .bk-section-head { flex-direction: column; align-items: flex-start; }
+  .bk-bookings-grid { grid-template-columns: 1fr; }
+}
+
+.bk-booking-card {
+  padding: 18px;
+  border-radius: 18px;
+  background: rgba(8, 12, 20, 0.76);
+  border: 1px solid var(--dark-border);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.bk-booking-card__top,
+.bk-booking-card__meta,
+.bk-booking-card__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.bk-booking-card__top strong {
+  color: #f8fafc;
+  font-size: 1rem;
+}
+
+.bk-booking-card__top span,
+.bk-booking-card__meta span,
+.bk-booking-card__footer span {
+  color: var(--dark-muted);
+  font-size: 0.86rem;
+}
+
+.bk-booking-card__meta {
+  padding-top: 12px;
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+
+.bk-booking-card__footer {
+  padding-top: 12px;
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+
+.bk-booking-card__footer strong {
+  color: #67e8f9;
+  font-size: 0.98rem;
+}
+
 .sp-slot-tile.selected {
   border-color: #7c3aed;
   background: rgba(124,58,237,0.12);

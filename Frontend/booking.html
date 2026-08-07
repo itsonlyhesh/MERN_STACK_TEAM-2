@@ -48,10 +48,16 @@
 
   <!-- ── MAIN CONTENT ─────────────────────────────────────────── -->
     <main class="bk-main">
-      <section id="my-bookings" class="bk-empty-state" aria-label="My bookings">
-        <h2>My bookings</h2>
-        <div id="myBookingsList">No bookings saved on this device yet.</div>
-      </section>
+        <section id="my-bookings" class="bk-bookings-section" aria-label="My bookings">
+          <div class="bk-section-head">
+            <div>
+              <p class="bk-section-eyebrow">Saved on this device</p>
+              <h2>My booked slots</h2>
+            </div>
+            <button type="button" id="bkClearBookings" class="sp-btn-back">Clear all</button>
+          </div>
+          <div id="myBookingsList" class="bk-bookings-empty">No bookings saved on this device yet.</div>
+        </section>
 
     <!-- Status / loading -->
     <div id="bkStatus" class="bk-status" aria-live="polite">
